@@ -19,7 +19,7 @@ public class IntegerBased {
         System.out.println("Array after replacing 5 with 55: " + Arrays.toString(a));
 
         // Sort array in ascending order
-        int[] ascending = Arrays.stream(a).sorted().toArray();
+        int[] ascending = Arrays.stream(a).sorted(Comparator.naturalOrder()).toArray();
         System.out.println("Sorted Array (Ascending Order): " + Arrays.toString(ascending));
 
         // Sort array in descending order
@@ -48,7 +48,7 @@ public class IntegerBased {
         System.out.println("Partitioned (Odd Numbers): " + partitionedMap.get(false));
 
         // Count frequency of each number
-        Map<Integer, Long> frequencyMap = Arrays.stream(a).boxed().collect(Collectors.groupingBy(n -> n, Collectors.counting()));
+        Map<Integer, Long> frequencyMap = Arrays.stream(a).boxed().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println("Frequency Count: " + frequencyMap);
 
         // Find numbers appearing more than once
