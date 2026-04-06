@@ -33,8 +33,9 @@ public static void main(String[] args) {
     employees.stream().filter(e -> e.getDepartment().equals("IT")).forEach(System.out::println);
 
     System.out.println("Sort based on names:");
-    employees.stream().map(Employee::getName).forEach(System.out::println);
-
+   employees.stream()
+    .sorted(Comparator.comparing(Employee::getName))
+    .forEach(System.out::println);
     System.out.println("Sort based on department:");
     Map<String, List<Employee>> employeesByDepartment = employees.stream()
         .collect(Collectors.groupingBy(Employee::getDepartment));
