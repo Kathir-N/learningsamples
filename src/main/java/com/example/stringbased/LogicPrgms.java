@@ -1,4 +1,10 @@
 public class Anagram {
+
+  public static void main(String[] args) {
+        System.out.println(isAnagram("listen", "silent"));   // true
+        System.out.println(isAnagram("earth", "heart"));     // true
+        System.out.println(isAnagram("hello", "world"));     // false
+    }
  
     static boolean isAnagram(String a, String b) {
         // Remove spaces and convert to lowercase
@@ -49,9 +55,5 @@ List<Item> result = allOrders.stream()
     .limit(3)                                                    // ✅ take top 3
     .collect(Collectors.toList());                               // ✅ collect
  
-    public static void main(String[] args) {
-        System.out.println(isAnagram("listen", "silent"));   // true
-        System.out.println(isAnagram("earth", "heart"));     // true
-        System.out.println(isAnagram("hello", "world"));     // false
-    }
+   
 }
