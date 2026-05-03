@@ -1,5 +1,5 @@
 public class Anagram {
-
+-------------------------------------------------------------------------------------------------
   public static void main(String[] args) {
         System.out.println(isAnagram("listen", "silent"));   // true
         System.out.println(isAnagram("earth", "heart"));     // true
@@ -22,7 +22,7 @@ public class Anagram {
  
         return Arrays.equals(arr1, arr2);
     }
-
+-------------------------------------------------------------------------------------------------
 
 //Output?
 
@@ -38,7 +38,7 @@ List<Student> distinctStudents = students.stream()
 System.out.println(distinctStudents.size());
 
 
-
+----------------------------------------
 
  //If Student does NOT override equals & hashCode
 ➡️ Output: Size: 2
@@ -52,7 +52,7 @@ So they are treated as different
 👉 If Student overrides equals & hashCode properly
 ➡️ Output: Size: 1
 
------------------------------
+-------------------------------------------------------------------------------------------------
 
 class A {
     static { System.out.print("A "); }
@@ -68,9 +68,79 @@ class B extends A {
     }
 }
 
------------------------------
+-----------------------------------------------
+  ✅ Final Output:
+A C B D
+✔️ Correct answer:
 
+B) ACBD
+
+🧠 Rule you should remember (no confusion after this)
+Static → Parent → Child (only once)
+Instance → Parent → Child (every object creation)
   
+-------------------------------------------------------------------------------------------------
+  class A {
+    static { System.out.print("A1 "); }
+    
+    { System.out.print("A2 "); }
+    
+    A() {
+        System.out.print("A3 ");
+    }
+}
+
+class B extends A {
+    static { System.out.print("B1 "); }
+    
+    { System.out.print("B2 "); }
+    
+    B() {
+        System.out.print("B3 ");
+    }
+
+    public static void main(String[] args) {
+        new B();
+        new B();
+    }
+}
+
+---------------------------------------------
+A1 B1 A2 A3 B2 B3 A2 A3 B2 B3
+
+Step-by-step (no guessing)
+✅ 1. Class loading (happens once)
+Load A → static block → A1
+Load B → static block → B1
+
+👉 So far:
+
+A1 B1
+✅ 2. First object → new B()
+
+Execution order:
+
+Parent instance block → A2
+Parent constructor → A3
+Child instance block → B2
+Child constructor → B3
+
+👉 Adds:
+
+A2 A3 B2 B3
+✅ 3. Second object → new B()
+
+⚠️ Static will NOT run again
+
+Same sequence repeats:
+
+A2 A3 B2 B3
+🧩 Final combine
+A1 B1  +  A2 A3 B2 B3  +  A2 A3 B2 B3  
+  
+
+-------------------------------------------------------------------------------------------------
+
 
  // --- Model Classes (assumed) ---
 record Item(int id, String name, double price, int quantity) {}
