@@ -52,6 +52,26 @@ So they are treated as different
 👉 If Student overrides equals & hashCode properly
 ➡️ Output: Size: 1
 
+-----------------------------
+
+class A {
+    static { System.out.print("A "); }
+    { System.out.print("B "); }
+}
+
+class B extends A {
+    static { System.out.print("C "); }
+    { System.out.print("D "); }
+
+    public static void main(String[] args) {
+        new B();
+    }
+}
+
+-----------------------------
+
+  
+
  // --- Model Classes (assumed) ---
 record Item(int id, String name, double price, int quantity) {}
 record Order(int id, List<Item> items) {}
