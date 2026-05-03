@@ -141,6 +141,26 @@ A1 B1  +  A2 A3 B2 B3  +  A2 A3 B2 B3
 
 -------------------------------------------------------------------------------------------------
 
+   List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> list2 = Arrays.asList(4, 5, 6, 7, 8);
+         list1.stream()
+            .filter(list2::contains)
+            .toList();
+-----------
+  Result: [4, 5, 6] ✅ Total complexity → O(n + m)
+  
+        Set<Integer> set = new HashSet<>(list2);
+
+        List<Integer> result = list1.stream()
+                                   .filter(set::contains)
+                                   .toList();
+
+        System.out.println(result);
+
+  Result: [4, 5, 6] ✅ o(N)
+
+-------------------------------------------------------------------------------------------------
+
 
  // --- Model Classes (assumed) ---
 record Item(int id, String name, double price, int quantity) {}
