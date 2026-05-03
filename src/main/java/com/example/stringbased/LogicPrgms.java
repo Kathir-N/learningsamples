@@ -23,7 +23,34 @@ public class Anagram {
         return Arrays.equals(arr1, arr2);
     }
 
- //
+
+//Output?
+
+  List<Student> students = Arrays.asList(
+    new Student("Alice"),
+    new Student("Alice")
+);
+
+List<Student> distinctStudents = students.stream()
+    .distinct()
+    .toList();
+
+System.out.println(distinctStudents.size());
+
+
+
+
+ //If Student does NOT override equals & hashCode
+➡️ Output: Size: 2
+
+Why?
+
+Two new Student("Alice") = two different objects in memory
+Default equals() (from Object) = reference comparison (==)
+So they are treated as different
+
+👉 If Student overrides equals & hashCode properly
+➡️ Output: Size: 1
 
  // --- Model Classes (assumed) ---
 record Item(int id, String name, double price, int quantity) {}
