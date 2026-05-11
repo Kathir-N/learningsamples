@@ -13,6 +13,18 @@ public static void main(String[] args) {
         new Employee(5, "Eashwar","HR", 30000, 25,"Male",2024,"Mumbai")
     );
 
+
+Find Employees with the Longest Tenure:
+Count Employees Per Location: Group employees by city and count how many work in each location:
+Sort based on DOJ before 2017:
+Sort based on IT department:
+Sort based on names:
+Sort based on department:
+Sort based on department count:
+Sort based on Max salary:
+Sort based on Average salary for all departments:
+Sort based on second largest salary:
+
     System.out.println("Find Employees with the Longest Tenure:");
     Employee longestTenure = employees.stream().min(Comparator.comparingInt(Employee::getYearOfJoining)).get();
     System.out.println(longestTenure);
