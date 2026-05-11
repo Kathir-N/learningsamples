@@ -10,20 +10,19 @@ public class IntegerBased {
         
         // Print numbers from 1 to 10
 Numbers from 1 to 10:
-Array after replacing 5 with 55: [1, 98, 7, 2, 3, 4, 55, 1, 2]
-Sorted Array (Ascending Order): [1, 1, 2, 2, 3, 4, 7, 55, 98]
-Sorted Array (Descending Order): [98, 55, 7, 4, 3, 2, 2, 1, 1]
-Sum of Array Elements: 173
-Maximum Value: 98
-Minimum Value: 1
-Even Numbers: [98, 2, 4, 2]
-Partitioned (Even Numbers): [98, 2, 4, 2]
-Partitioned (Odd Numbers): [1, 7, 3, 55, 1]
-Frequency Count: {1=2, 98=1, 7=1, 2=2, 3=1, 4=1, 55=1}
-Repeating Numbers: [1, 2]
-First Non-Repeating Number: 98
-Repeating Numbers (Using TreeMap): [1, 2]
-    
+Array after replacing 5 with 55:
+Sorted Array (Ascending Order):
+Sorted Array (Descending Order):
+Sum of Array Elements:
+Maximum Value:
+Minimum Value:
+Even Numbers:
+Partitioned (Even Numbers):
+Partitioned (Odd Numbers):
+Frequency Count:
+Repeating Numbers:
+First Non-Repeating Number:
+Repeating Numbers (Using TreeMap):    
 
         
         System.out.println("Numbers from 1 to 10:");
