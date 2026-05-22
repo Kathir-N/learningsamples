@@ -12,6 +12,10 @@ public class StringBased {
         String s = "Programming";
 
         // Count occurrences of each character
+                // Find non-repeating characters
+        // Find names that have a reversed equivalent
+        // Filter map entries that start with 's' ignoring blank values
+
         System.out.println("Character Frequency Count:");
         Map<Character, Long> charCountMap = s.toLowerCase().chars()
                 .mapToObj(c -> (char) c)
