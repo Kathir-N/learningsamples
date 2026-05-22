@@ -46,6 +46,12 @@ Repeating Numbers (Using TreeMap):
         int sum = Arrays.stream(a).sum();
         System.out.println("Sum of Array Elements: " + sum);
 
+
+        //remove duplicates and find second largest
+
+        Optional<> s =Arrays.stream(a).boxed().distinct().sorted(Comparator.naturalOrder().reversed()).skip(1).findFirst();
+
+            
         // Maximum value in array
         int max = Arrays.stream(a).max().orElseThrow();
         System.out.println("Maximum Value: " + max);
