@@ -23,7 +23,59 @@ public class Anagram {
         return Arrays.equals(arr1, arr2);
     }
 -------------------------------------------------------------------------------------------------
+public class StringPermutation {
 
+    public static void permutation(String str, String result) {
+
+        // base case — nothing left to pick → print
+        if (str.isEmpty()) {
+            System.out.println(result);
+            return;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+
+            char picked      = str.charAt(i);                    // 1. pick
+            String remaining = str.substring(0, i)              
+                             + str.substring(i + 1);             // 2. remove
+            permutation(remaining, result + picked);             // 3. recurse
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Permutations of ABC:");
+        permutation("ABC", "");
+    }
+}
+
+Permutations of ABC:
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+
+  permutation("ABC", "")
+        ↓
+   pick A → permutation("BC", "A")
+              pick B → permutation("C", "AB")
+                         pick C → permutation("", "ABC") → print ABC ✅
+              pick C → permutation("B", "AC")
+                         pick B → permutation("", "ACB") → print ACB ✅
+        ↓
+   pick B → permutation("AC", "B")
+              pick A → permutation("C", "BA")
+                         pick C → permutation("", "BAC") → print BAC ✅
+              pick C → permutation("A", "BC")
+                         pick A → permutation("", "BCA") → print BCA ✅
+        ↓
+   pick C → permutation("AB", "C")
+              pick A → permutation("B", "CA")
+                         pick B → permutation("", "CAB") → print CAB ✅
+              pick B → permutation("A", "CB")
+                         pick A → permutation("", "CBA") → print CBA ✅
+---------------------------------------
 //Output?
 
   List<Student> students = Arrays.asList(
