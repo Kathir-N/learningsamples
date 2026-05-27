@@ -16,6 +16,27 @@ public class StringBased {
         // Find names that have a reversed equivalent
         // Filter map entries that start with 's' ignoring blank values
 
+
+
+
+
+        import java.util.stream.Collectors;
+
+
+    public static String removeDuplicates(String str) {
+        return str.toLowerCase().chars()
+                  .distinct()                          
+                  .mapToObj(c -> String.valueOf((char) c))
+                  .collect(Collectors.joining());
+    }
+
+        String s1 = "programming";
+        String s2 = "hello";
+//Original : programming -> progamin
+//Original : hello       -> helo
+        System.out.println("Original : " + s1 + " -> " + removeDuplicates(s1));
+        System.out.println("Original : " + s2 + " -> " + removeDuplicates(s2));
+    
         System.out.println("Character Frequency Count:");
         Map<Character, Long> charCountMap = s.toLowerCase().chars()
                 .mapToObj(c -> (char) c)
