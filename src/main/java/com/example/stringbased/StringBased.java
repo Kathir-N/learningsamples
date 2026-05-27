@@ -20,9 +20,6 @@ public class StringBased {
 
 
 
-        import java.util.stream.Collectors;
-
-
     public static String removeDuplicates(String str) {
         return str.toLowerCase().chars()
                   .distinct()                          
@@ -36,7 +33,17 @@ public class StringBased {
 //Original : hello       -> helo
         System.out.println("Original : " + s1 + " -> " + removeDuplicates(s1));
         System.out.println("Original : " + s2 + " -> " + removeDuplicates(s2));
-    
+
+
+       List<String> names = List.of("hello", "world", "java", "streams");
+
+        List<String> upperCaseNames = names.stream()
+                                           .map(String::toUpperCase)
+                                           .collect(Collectors.toList());
+
+        System.out.println("Original : " + names);
+        System.out.println("UpperCase : " + upperCaseNames);
+
         System.out.println("Character Frequency Count:");
         Map<Character, Long> charCountMap = s.toLowerCase().chars()
                 .mapToObj(c -> (char) c)
