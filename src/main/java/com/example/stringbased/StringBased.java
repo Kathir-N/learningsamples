@@ -15,6 +15,9 @@ public class StringBased {
                 // Find non-repeating characters
         // Find names that have a reversed equivalent
         // Filter map entries that start with 's' ignoring blank values
+//Original : programming -> progamin
+//        List<String> names = List.of("hello", "world", "java", "streams"); //make it uppercase
+       String reversed = "HELLO" to OLLHE -reverse
 
 
 
@@ -50,6 +53,11 @@ public class StringBased {
         .chars()
         .mapToObj(c -> String.valueOf((char) c))
         .reduce("", (a, b) -> b + a);
+        /*Step 1: "" + "H"          → a="",    b="H" → b+a = "H"
+         Step 2: "H" + "E"         → a="H",   b="E" → b+a = "EH"
+         Step 3: "EH" + "L"        → a="EH",  b="L" → b+a = "LEH"
+         Step 4: "LEH" + "L"       → a="LEH", b="L" → b+a = "LLEH"
+        Step 5: "LLEH" + "O"      → a="LLEH",b="O" → b+a = "OLLEH" */
 
 System.out.println(reversed);  // OLLEH
         Map<Character, Long> charCountMap = s.toLowerCase().chars()
