@@ -45,6 +45,13 @@ public class StringBased {
         System.out.println("UpperCase : " + upperCaseNames);
 
         System.out.println("Character Frequency Count:");
+
+       String reversed = "HELLO"
+        .chars()
+        .mapToObj(c -> String.valueOf((char) c))
+        .reduce("", (a, b) -> b + a);
+
+System.out.println(reversed);  // OLLEH
         Map<Character, Long> charCountMap = s.toLowerCase().chars()
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
