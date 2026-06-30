@@ -23,6 +23,62 @@ public class Anagram {
         return Arrays.equals(arr1, arr2);
     }
 -------------------------------------------------------------------------------------------------
+public class LongestRun {
+    public static void main(String[] args) {
+        String s = "abcabcccddddd";
+
+        int maxLen = 0, curLen = 1, start = 0, maxStart = 0;
+
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == s.charAt(i - 1)) {
+                curLen++;
+            } else {
+                curLen = 1;
+                start = i;
+            }
+            if (curLen > maxLen) {
+                maxLen = curLen;
+                maxStart = start;
+            }
+        }
+
+        System.out.println(s.substring(maxStart, maxStart + maxLen)); // ddddd
+    }
+}
+
+
+
+-------------------------------------------------------------
+  public class MoveZeros {
+    public static void main(String[] args) {
+        int[] a = {1, 0, 2, 3, 0, 4, 4, 0, 5};
+        int j = 0;
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != 0) {
+                int temp = a[i];     // swap a[i] and a[j]
+                a[i] = a[j];
+                a[j] = temp;
+                j++;
+            }
+        }
+        System.out.println(Arrays.toString(a));
+        // [1, 2, 3, 4, 4, 5, 0, 0, 0]
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  
 public class StringPermutation {
 
     public static void permutation(String str, String result) {
